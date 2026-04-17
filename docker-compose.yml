@@ -1,0 +1,58 @@
+services:
+
+  client:
+    build: ./frontend-panel
+    ports:
+      - "5173:80"
+    depends_on:
+      - gateway
+
+  gateway:
+    build: ./backend/gateway
+    ports:
+      - "3000:3000"
+
+  auth-service:
+    build: ./backend/auth-service
+    ports:
+      - "4000:4000"
+    env_file:
+      - ./backend/.env
+
+  user-service:
+    build: ./backend/user-service
+    ports:
+      - "4001:4001"
+    env_file:
+      - ./backend/.env
+
+  product-service:
+    build: ./backend/product-service
+    ports:
+      - "4002:4002"
+    env_file:
+      - ./backend/.env
+
+  order-service:
+    build: ./backend/order-service
+    ports:
+      - "4003:4003"
+    env_file:
+      - ./backend/.env
+
+  notification-service:
+    build: ./backend/notification-service
+
+  mongo:
+    image: mongo
+    ports:
+      - "27017:27017"
+
+  redis:
+    image: redis
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    ports:
+      - "5672:5672"
+      - "15672:15672"
