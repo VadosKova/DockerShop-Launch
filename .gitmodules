@@ -1,0 +1,6 @@
+[submodule "backend"]
+	path = backend
+	url = https://github.com/VadosKova/DockerShop-Backend.git
+[submodule "frontend-panel"]
+	path = frontend-panel
+	url = https://github.com/VadosKova/DockerShop-Frontend.git
