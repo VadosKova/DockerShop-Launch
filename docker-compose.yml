@@ -42,6 +42,8 @@ services:
 
   notification-service:
     build: ./backend/notification-service
+    depends_on:
+    - rabbitmq
 
   mongo:
     image: mongo
