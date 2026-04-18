@@ -42,8 +42,10 @@ services:
 
   notification-service:
     build: ./backend/notification-service
+    env_file:
+      - ./backend/.env
     depends_on:
-    - rabbitmq
+      - rabbitmq
 
   mongo:
     image: mongo
